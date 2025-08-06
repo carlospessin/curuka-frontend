@@ -53,40 +53,6 @@ const Header = () => {
              <a href="#newsletter" className="text-foreground hover:text-primary transition-colors font-medium">
               Newsletter
             </a>
-            {/* <div className="flex items-center space-x-1">
-              <span className="text-accent-orange">📁</span>
-              <a href="#" className="text-foreground hover:text-primary transition-colors font-medium">
-                Category
-              </a>
-              <span className="text-gray-400">▼</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <a href="#home" className="text-foreground hover:text-primary transition-colors font-medium">
-                Home
-              </a>
-              <span className="text-gray-400">▼</span>
-            </div>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors font-medium">
-              About Us
-            </a>
-            <div className="flex items-center space-x-1">
-              <a href="#programs" className="text-foreground hover:text-primary transition-colors font-medium">
-                Programs
-              </a>
-              <span className="text-gray-400">▼</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <a href="#pages" className="text-foreground hover:text-primary transition-colors font-medium">
-                Pages
-              </a>
-              <span className="text-gray-400">▼</span>
-            </div>
-            <div className="flex items-center space-x-1">
-              <a href="#blog" className="text-foreground hover:text-primary transition-colors font-medium">
-                Blog
-              </a>
-              <span className="text-gray-400">▼</span>
-            </div> */}
             <a href="#contact" className="text-foreground hover:text-primary transition-colors font-medium">
               Contato
             </a>
@@ -115,57 +81,30 @@ const Header = () => {
           <div className="md:hidden mt-4 py-4 border-t border-border">
             <nav className="flex flex-col space-y-4">
               <a
-                href="#category"
+                href="#testmonials"
                 className="text-foreground hover:text-primary transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Category
+                Depoimentos
               </a>
               <a
-                href="#home"
+                href="#newsletter"
                 className="text-foreground hover:text-primary transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Home
-              </a>
-              <a
-                href="#about"
-                className="text-foreground hover:text-primary transition-colors font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About Us
-              </a>
-              <a
-                href="#programs"
-                className="text-foreground hover:text-primary transition-colors font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Programs
-              </a>
-              <a
-                href="#pages"
-                className="text-foreground hover:text-primary transition-colors font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Pages
-              </a>
-              <a
-                href="#blog"
-                className="text-foreground hover:text-primary transition-colors font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Blog
+                Newsletter
               </a>
               <a
                 href="#contact"
                 className="text-foreground hover:text-primary transition-colors font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact Us
+                Contato
               </a>
               <div className="flex flex-col space-y-2 pt-4">
                 <Button variant="hero" size="sm" className="bg-accent-orange hover:bg-accent-orange/90">
-                  Get A Quote →
+                  Baixe o App
+                  <TabletSmartphone className="w-4 h-4 text-white" />
                 </Button>
               </div>
             </nav>
