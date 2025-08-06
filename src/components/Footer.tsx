@@ -48,8 +48,7 @@ const Footer = () => {
             </div>
             
             <p className="text-gray/80 text-lg leading-relaxed max-w-md">
-              Transformando a educação infantil através de métodos inovadores e 
-              professores apaixonados pelo desenvolvimento das crianças.
+              Segurança e tranquilidade na palma da sua mão.
             </p>
 
             {/* Contact Info */}
