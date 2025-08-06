@@ -1,28 +1,29 @@
 import { Heart, Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { HashLink as Link } from 'react-router-hash-link';
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     company: [
-      { name: "Sobre Nós", href: "#about" },
-      { name: "Nossa Missão", href: "#mission" },
+      { name: "Sobre Nós", href: "about" },
+      { name: "Newsletter", href: "#newsletter" },
       { name: "Depoimentos", href: "#testimonials" }
     ],
     tecnologic: [
-      { name: "NFC", href: "#math" },
+      { name: "NFC", href: "nfc" },
     ],
     support: [
-      { name: "Central de Ajuda", href: "#help" },
-      { name: "Contato", href: "#contact" },
-      { name: "FAQ", href: "#faq" },
-      { name: "Suporte Técnico", href: "#support" }
+      { name: "Central de Ajuda", href: "help" },
+      { name: "FAQ", href: "faq" },
+      { name: "Suporte Técnico", href: "support" }
     ],
     legal: [
-      { name: "Política de Privacidade", href: "#privacy" },
-      { name: "Termos de Uso", href: "#terms" },
-      { name: "Cookies", href: "#cookies" },
-      { name: "LGPD", href: "#lgpd" }
+      { name: "Política de Privacidade", href: "privacy" },
+      { name: "Termos de Uso", href: "terms" },
+      { name: "Cookies", href: "cookies" },
+      { name: "LGPD", href: "lgpd" }
     ]
   };
 
@@ -78,14 +79,14 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
-                <a
+                <Link
                   key={index}
-                  href={social.href}
+                  to={social.href}
                   aria-label={social.label}
                   className={`w-10 h-10 bg-gray/10 rounded-xl flex items-center justify-center transition-all duration-200 hover:bg-gray/20 hover:scale-110 ${social.color}`}
                 >
                   <social.icon className="w-5 h-5" />
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -96,12 +97,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-gray/70 hover:text-orange-500 transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -112,12 +113,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.tecnologic.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-gray/70 hover:text-gray hover:text-orange-500 transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -128,12 +129,12 @@ const Footer = () => {
             <ul className="space-y-3 mb-8">
               {footerLinks.support.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-gray/70 hover:text-gray hover:text-orange-500 transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -142,12 +143,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.legal.map((link, index) => (
                 <li key={index}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-gray/70 hover:text-gray hover:text-orange-500 transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

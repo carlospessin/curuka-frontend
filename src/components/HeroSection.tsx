@@ -2,8 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Play, Star, Users, BookOpen, MapPin, Mail, MapPinCheck } from "lucide-react";
 import heroKids from "@/assets/hero-girl-2.png";
 import rightShape from "@/assets/right-shape.png";
-
-
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -18,28 +17,29 @@ const HeroSection = () => {
         <div className="absolute top-40 right-20 w-16 h-16 bg-accent-pink rounded-full opacity-30 bounce-gentle"></div>
         <div className="absolute bottom-20 left-20 w-12 h-12 bg-accent-yellow rounded-full opacity-25 float"></div>
 
-        <h1 className="h1 text-4xl md:text-6xl font-bold text-gray-600 leading-tight ">
-          Curuka Kid's <br />
-          Segurança <span className="text-orange-400">Infantil</span>
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-600 leading-tight">
+          Curuka <span className="text-orange-400">Kid's</span> <br />
         </h1>
-
+        <p className="text-4xl text-gray-600 max-w-md leading-relaxed !m-0">
+          Segurança Infantil
+        </p>
         <p className="text-gray-600 max-w-md leading-relaxed">
           Um sistema moderno que utiliza NFC para proteger crianças em tempo real.
           Segurança e tranquilidade na palma da sua mão.
         </p>
 
         <div className="flex space-x-6">
-          <a href="/register">
+          <Link to="/register">
             <Button className="bg-orange-400 hover:bg-orange-500 text-white rounded-full px-6 py-3 font-semibold shadow-md transition">
               Criar Conta
             </Button>
-          </a>
+          </Link>
 
-          <a href="/login">
+          <Link to="/login">
             <Button className="bg-white hover:bg-black/10 text-gray-700 rounded-full px-6 py-3 font-semibold shadow-md transition">
               Já tenho conta
             </Button>
-          </a>
+          </Link>
         </div>
       </div>
 
