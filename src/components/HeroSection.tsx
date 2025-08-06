@@ -7,10 +7,10 @@ import rightShape from "@/assets/right-shape.png";
 
 const HeroSection = () => {
   return (
-    <section
-      id="home"
-      className="relative min-h-[50vh] flex items-center bg-[#f5ede0] font-quicksand px-6 lg:px-24 overflow-x-hidden"
-    >
+<section
+  id="home"
+  className="relative min-h-[50vh] sm:min-h-screen flex items-center bg-[#f5ede0] font-quicksand px-6 lg:px-24"
+>
       {/* Lado esquerdo */}
         <div className="max-w-xl space-y-8 z-10 relative mx-auto text-center md:text-left flex flex-col items-center md:items-start">
         {/* Floating Elements */}
