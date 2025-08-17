@@ -1,13 +1,19 @@
 import axios from "axios";
 import { useState } from "react";
 import { LoaderCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+
 import InputError from "@/components/input-error";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import AuthLayout from "@/layouts/auth-layout";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000/api";
+
 export default function Register() {
+  const navigate = useNavigate();
+
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -22,11 +28,13 @@ export default function Register() {
     setProcessing(true);
     setErrors({});
     try {
-      await axios.post("http://localhost:8000/register", data);
-      window.location.href = "/#/login";
+      await axios.post(`${API_URL}/register`, data);
+      navigate("/login"); // 🔑 redireciona pelo router
     } catch (err: any) {
       if (err.response?.data?.errors) {
         setErrors(err.response.data.errors);
+      } else if (err.response?.data?.message) {
+        setErrors({ general: err.response.data.message });
       }
     } finally {
       setProcessing(false);
@@ -36,7 +44,7 @@ export default function Register() {
   return (
     <AuthLayout
       title="Criar conta"
-      description="Prencha os campos abaixo para criar sua conta"
+      description="Preencha os campos abaixo para criar sua conta"
     >
       <form className="flex flex-col gap-6" onSubmit={submit}>
         <div className="grid gap-6">
@@ -102,9 +110,14 @@ export default function Register() {
             <InputError message={errors.password_confirmation} />
           </div>
 
+          {/* Erro geral */}
+          {errors.general && (
+            <div className="text-red-600 text-sm mb-2">{errors.general}</div>
+          )}
+
           {/* Botão */}
           <Button type="submit" className="mt-2 w-full" disabled={processing}>
-            {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+            {processing && <LoaderCircle className="h-4 w-4 animate-spin mr-2" />}
             Criar conta
           </Button>
         </div>

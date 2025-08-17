@@ -1,34 +1,36 @@
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import { type BreadcrumbItem as BreadcrumbItemType } from '@/types';
-import { Link } from '@inertiajs/react';
-import { Fragment } from 'react';
+import { Fragment } from "react";
+import { Link } from "react-router-dom";
 
-export function Breadcrumbs({ breadcrumbs }: { breadcrumbs: BreadcrumbItemType[] }) {
+interface BreadcrumbItem {
+    title: string;
+    href: string;
+}
+
+interface BreadcrumbsProps {
+    breadcrumbs: BreadcrumbItem[];
+}
+
+export function Breadcrumbs({ breadcrumbs }: BreadcrumbsProps) {
     return (
-        <>
-            {breadcrumbs.length > 0 && (
-                <Breadcrumb>
-                    <BreadcrumbList>
-                        {breadcrumbs.map((item, index) => {
-                            const isLast = index === breadcrumbs.length - 1;
-                            return (
-                                <Fragment key={index}>
-                                    <BreadcrumbItem>
-                                        {isLast ? (
-                                            <BreadcrumbPage>{item.title}</BreadcrumbPage>
-                                        ) : (
-                                            <BreadcrumbLink asChild>
-                                                <Link href={item.href}>{item.title}</Link>
-                                            </BreadcrumbLink>
-                                        )}
-                                    </BreadcrumbItem>
-                                    {!isLast && <BreadcrumbSeparator />}
-                                </Fragment>
-                            );
-                        })}
-                    </BreadcrumbList>
-                </Breadcrumb>
-            )}
-        </>
+        <nav className="text-sm mb-4">
+            {breadcrumbs.length > 0 &&
+                breadcrumbs.map((item, index) => {
+                    const isLast = index === breadcrumbs.length - 1;
+                    return (
+                        <Fragment key={index}>
+                            {isLast ? (
+                                <span className="font-semibold">{item.title}</span>
+                            ) : (
+                                <>
+                                    <Link to={item.href} className="text-blue-500 hover:underline">
+                                        {item.title}
+                                    </Link>
+                                    <span className="mx-2">/</span>
+                                </>
+                            )}
+                        </Fragment>
+                    );
+                })}
+        </nav>
     );
 }

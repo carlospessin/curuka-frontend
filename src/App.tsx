@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Register from "./pages/auth/register";
 import Login from "./pages/auth/login";
+import Dashboard from "./pages/dashboard";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      {/* Aqui você usa HashRouter no lugar de BrowserRouter */}
       <HashRouter>
         <Routes>
           <Route path="/" element={<Index />} />
@@ -23,6 +25,7 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </HashRouter>
     </TooltipProvider>
