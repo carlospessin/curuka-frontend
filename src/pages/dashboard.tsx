@@ -1,37 +1,60 @@
-import { AppShell } from '@/components/app-shell';
-import { PlaceholderPattern } from '@/components/ui/placeholder-pattern';
-import { useEffect } from 'react';
+// src/pages/Dashboard.tsx
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { UserPlus, Settings } from 'lucide-react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
     const navigate = useNavigate();
 
-    // Se quiser validar autenticação local:
-    useEffect(() => {
-        const token = localStorage.getItem('auth_token');
-        if (!token) {
-            navigate('/login'); // redireciona se não estiver logado
-        }
-    }, []);
-
     return (
-        <AppShell>
-            <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4 overflow-x-auto">
-                <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
-                    <div className="relative aspect-video overflow-hidden rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
-                        <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
-                    </div>
+        <div className="min-h-screen bg-background">
+            <Header />
+            <div className="container mx-auto px-4 py-8 mt-20">
+                <div className="mb-8">
+                    <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
+                    <p className="text-muted-foreground">Resumo e acesso rápido</p>
                 </div>
-                <div className="relative min-h-[100vh] flex-1 overflow-hidden rounded-xl border border-sidebar-border/70 md:min-h-min dark:border-sidebar-border">
-                    <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <Card className="cursor-pointer hover:shadow-md transition-shadow">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                                <Settings className="h-5 w-5" />
+                                Gerenciar Perfis
+                            </CardTitle>
+                            <CardDescription>
+                                Veja, edite ou exclua perfis criados
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <Button className="w-full" onClick={() => navigate('/profiles')}>
+                                Gerenciar Perfis
+                            </Button>
+                        </CardContent>
+                    </Card>
+
+                    <Card className="cursor-pointer hover:shadow-md transition-shadow">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                                <UserPlus className="h-5 w-5" />
+                                Cadastrar Perfil
+                            </CardTitle>
+                            <CardDescription>
+                                Crie um novo perfil com informações de contato
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <Button className="w-full" onClick={() => navigate('/create-profile')}>
+                                Criar Novo Perfil
+                            </Button>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
-        </AppShell>
+            <Footer />
+        </div>
     );
 }

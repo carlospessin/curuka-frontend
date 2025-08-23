@@ -9,6 +9,12 @@ import NotFound from "./pages/NotFound";
 import Register from "./pages/auth/register";
 import Login from "./pages/auth/login";
 import Dashboard from "./pages/dashboard";
+import EditProfile from "./pages/EditProfile";
+import CreateProfile from "./pages/CreateProfile";
+import EditProfileForm from "./components/EditProfileForm";
+import CreateProfileForm from "./components/CreateProfileForm";
+import ProfileManager from "./pages/ProfileManager";
+
 
 const queryClient = new QueryClient();
 
@@ -26,6 +32,10 @@ const App = () => (
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profiles" element={<ProfileManager />} />
+          <Route path="/create-profile" element={<CreateProfile />} />
+          <Route path="/edit-profile/:id" element={<EditProfile />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </HashRouter>
     </TooltipProvider>
